@@ -29,8 +29,12 @@ export default defineConfig({
             },
         }),
 		starlight({
-			title: 'Zenith WebSocket API',
-			// social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Plxtra Zenith WebSocket API',
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/plxtra/' },
+				{ icon: 'zulip', label: 'Chat groups', href: 'https://plxtra.zulipchat.com/' },
+				{ icon: 'up-caret', label: 'Plxtra Home', href: 'https://plxtra.org/' },
+			],
 			sidebar: [
 				{
 					label: 'Plxtra',
