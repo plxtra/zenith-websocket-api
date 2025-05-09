@@ -33,6 +33,10 @@ export default defineConfig({
 			// social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
+					label: 'Plxtra',
+					link: 'https://plxtra.org/external-api/zenith/websocket/',
+				},
+				{
 					label: 'Introduction',
 					slug: '',
 				},
