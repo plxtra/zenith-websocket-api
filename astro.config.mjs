@@ -1,26 +1,124 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
+import { defineConfig } from 'astro/config';
+
+const canonicalHost = 'plxtra.org'; // Must match BaseLayout
+
+export const githubHost = 'plxtra.github.io';
+export const githubSite = `https://${githubHost}`;
 
 // https://astro.build/config
 export default defineConfig({
+    site: githubSite,
+	base: '/zenith-websocket-api/',
+
+	trailingSlash: 'always',
+
 	integrations: [
+        sitemap({
+            // Change sitemap URLs to use custom host supplied to GitHub.
+            serialize(item) {
+                const url = new URL(item.url);
+                if (url.host === githubHost) {
+                    url.host = canonicalHost;
+                }
+                item.url = url.href;
+                return item;
+            },
+        }),
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'Zenith WebSocket API',
+			// social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'Introduction',
+					slug: '',
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Getting Started',
+					slug: 'getting-started',
+				},
+				{
+					label: 'Fundamentals',
+					autogenerate: { directory: 'fundamentals' },
+				},
+				{
+					label: 'API Controllers',
+					items: [
+						{
+							label: 'Introduction',
+							slug: 'controllers',
+						},
+						{
+							label: 'Common',
+							autogenerate: { directory: 'controllers/common' },
+							collapsed: true,
+						},
+						{
+							label: 'Auth',
+							autogenerate: { directory: 'controllers/auth' },
+							collapsed: true,
+						},
+						{
+							label: 'Channel',
+							autogenerate: { directory: 'controllers/channel' },
+							collapsed: true,
+						},
+						{
+							label: 'Fragments',
+							autogenerate: { directory: 'controllers/fragments' },
+							collapsed: true,
+						},
+						{
+							label: 'Market',
+							autogenerate: { directory: 'controllers/market' },
+							collapsed: true,
+						},
+						{
+							label: 'News',
+							autogenerate: { directory: 'controllers/news' },
+							collapsed: true,
+						},
+						{
+							label: 'Notify',
+							autogenerate: { directory: 'controllers/notify' },
+							collapsed: true,
+						},
+						{
+							label: 'Trading',
+							autogenerate: { directory: 'controllers/trading' },
+							collapsed: true,
+						},
+						{
+							label: 'Watchlist',
+							autogenerate: { directory: 'controllers/watchlist' },
+							collapsed: true,
+						},
+						{
+							label: 'Zenith',
+							autogenerate: { directory: 'controllers/zenith' },
+							collapsed: true,
+						},
+					]
+				},
+				{
+					label: 'Markets',
+					autogenerate: { directory: 'markets' },
+					collapsed: true,
+				},
+				{
+					label: 'Appendices',
+					autogenerate: { directory: 'appendices' },
+					collapsed: true,
+				},
+				{
+					label: 'Change History',
+					slug: 'change-history',
 				},
 			],
 		}),
+        mdx(),
 	],
 });
