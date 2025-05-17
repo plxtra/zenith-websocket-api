@@ -12,7 +12,7 @@ export const githubSite = `https://${githubHost}`;
 // https://astro.build/config
 export default defineConfig({
     site: githubSite,
-	base: '/zenith-websocket-api/',
+	base: '/zenith-api/',
 
 	trailingSlash: 'always',
 

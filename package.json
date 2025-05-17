@@ -1,5 +1,5 @@
 {
-  "name": "zenith-websocket-api",
+  "name": "zenith-api",
   "type": "module",
   "private": true,
   "version": "0.9.0",
