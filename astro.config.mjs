@@ -12,7 +12,7 @@ export const githubHost = 'plxtra.github.io';
 // https://astro.build/config
 export default defineConfig({
     site: canonicalSite,
-	base: '/zenith-api/',
+	base: '/front-end-api/',
 
 	trailingSlash: 'always',
 

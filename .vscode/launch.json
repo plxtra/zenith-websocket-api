@@ -11,7 +11,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:4321/zenith-api/",
+            "url": "http://localhost:4321/front-end-api/",
             "webRoot": "${workspaceFolder}/src",
             "sourceMapPathOverrides": {
                 "vite:///src/*": "${webRoot}/*"
