@@ -2,7 +2,7 @@
 title: "Getting Started"
 ---
 
-Getting started with the Zenith WebSockets API client requires nothing more than a modern web-browser and some skill with JavaScript.
+Getting started with the Front-end WebSockets API client requires nothing more than a modern web-browser and some skill with JavaScript.
 
 ## Authenticate
 
@@ -20,7 +20,7 @@ The version of the Zenith protocol you wish to speak can be specified as a versi
 
 One of the first things a client should do is see what they have access to. There are several queries to help with this,including: [QueryIdentify](../controllers/auth/queryidentify/), [QueryMarkets](../controllers/market/querymarkets/), [QuerySources](../controllers/news/querysources/), and [QueryAccounts](../controllers/trading/queryaccounts/).
 
-[QueryIdentify](../controllers/auth/queryidentify/) will tell you whether you're successfully authorised \(assuming you didn't use HTTP authorisation\), and list the Zenith scopes you've been authorised for. Most parts of the Zenith WebSockets API will have one or more required scopes before you'll get any data back.
+[QueryIdentify](../controllers/auth/queryidentify/) will tell you whether you're successfully authorised \(assuming you didn't use HTTP authorisation\), and list the Zenith scopes you've been authorised for. Most parts of the Front-end WebSockets API will have one or more required scopes before you'll get any data back.
 
 [QueryMarkets](../controllers/market/querymarkets/), assuming you're authorised, will give you a list of the markets you can see. Don't just assume you can always see a particular market. Depending on your login, the live market might be unavailable and you'll have `ASX\[Demo\]` instead. Or you may be able to access both `ASX` and `ASX\[Demo\]` at the same time.
 
